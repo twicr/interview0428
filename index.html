@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>写一个获取当前url查询字符串中的参数的方法</title>
+	<style type="text/css">
+		
+	</style>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+</head>
+<body>
+	<form>
+		姓名：<input type="text" name="name"><br>
+		年龄：<input type="text" name="age"><br>
+		性别：<input type="text" name="sex"><br>
+		<input type="submit" name="提交">
+	</form>
+	
+	<script type="text/javascript">
+		// function urlArgument(){
+		// 	var search = decodeURI(window.location.search);
+		// 	search = search.substr(1,search.length);
+		// 	var arr = search.split("&");
+		// 	var obj = {};
+		// 	for(var i = 0; i < arr.length; i ++){
+		// 		arr[i] = arr[i].split("=");
+		// 		obj[arr[i][0]] = arr[i][1];
+		// 	}
+		// 	return obj;
+		// }
+
+		var search = decodeURI(window.location.search);
+		search = search.substr(1,search.length);
+		var obj = {};
+		search.split("&").map(item => {
+			const arr = item.split("=");
+			obj[arr[0]] = arr[1];
+		})
+		console.log(obj);
+	</script>
+</body>
+</html>
