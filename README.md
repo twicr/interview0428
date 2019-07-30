@@ -14,3 +14,30 @@
 * 一般情况下盒子的width = border-left + padding-left + content + padding-right + border-right
 * 一般情况下盒子的height = border-top + padding-top + content + padding-bottom + border-bottom
 * css3提供新属性box-sizing，设置border-box后width和height为位置的值，content随width和height改变而改变
+# JS
+### 写一个获取当前url查询字符串中的参数的方法
+使用for循环遍历
+```javascript
+function urlArgument(){
+    var search = decodeURI(window.location.search);
+    search = search.substr(1,search.length);
+    var arr = search.split("&");
+    var obj = {};
+    for(var i = 0; i < arr.length; i ++){
+      arr[i] = arr[i].split("=");
+      obj[arr[i][0]] = arr[i][1];
+    }
+    return obj;
+}
+```
+使用过map遍历
+```javascript
+var search = decodeURI(window.location.search);
+search = search.substr(1,search.length);
+var obj = {};
+search.split("&").map(item => {
+    const arr = item.split("=");
+    obj[arr[0]] = arr[1];
+})
+console.log(obj);
+```
